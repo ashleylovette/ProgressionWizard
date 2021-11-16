@@ -1,0 +1,22 @@
+  input[type=text] {
+  border: none;
+  border-bottom: 2px solid black;
+  margin-bottom: 2em;
+  margin-right: 2em;
+  font-size: large;
+  width: 50%;
+  display: flex;
+  text-align: center;
+}
+
+button {
+  margin: 1em 1em;
+}
+
+input.ng-invalid.ng-touched {
+  border: solid red 1px;
+}
+
+.help-block {
+  color: red;
+}

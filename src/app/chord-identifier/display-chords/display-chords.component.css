@@ -1,0 +1,17 @@
+div.container.list-group-item {
+  height: 379px;
+  margin-bottom: 50px;
+}
+
+pre {
+  height: 35vmin;
+}
+
+button {
+  margin-right: 5px;
+}
+
+.displayedChord {
+  height: 45px;
+  font-size: x-large;
+}

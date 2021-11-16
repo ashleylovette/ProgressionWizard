@@ -1,0 +1,45 @@
+<hr />
+<div class="container list-group-item">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3 class="lead">Your Chords:</h3>
+      <pre>
+        <span *ngIf="!chordDisplayed">
+          <h4>Display Your Song Here!</h4>
+        </span>
+        <div class="col-xs-2">
+          <ul class="list-group list-group-horizontal-lg">
+            <a class="list-group-item list-group-item-action displayedChord" *ngFor="let chord of allChords">{{ chord }}</a>
+          </ul>
+        </div>
+      </pre>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 btn-group align-right">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="onSaveSong()"
+        [disabled]="!chordDisplayed"
+      >
+        Save Song
+      </button>
+      <button
+        type="button"
+        class="btn btn-warning"
+        [disabled]="!chordDisplayed"
+      >
+        Remove Chord
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="onDeleteSong()"
+        [disabled]="!chordDisplayed"
+      >
+        Delete Song
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container card">
+  <div class="col-xs-6">
+    <h2 class="lead">Your chord:</h2>
+  </div>
+  <div>
+    <h2>{{ yourChord }}</h2>
+  </div>
+  <div class="container btn-group">
+    <button
+      class="btn btn-primary"
+      (click)="onSaveChord(yourChord)"
+      [disabled]="yourChord === '' || null"
+    >
+      Save Chord
+    </button>
+    <button
+      class="btn btn-danger"
+      (click)="onDeleteChord()"
+      [disabled]="yourChord === '' || null"
+    >
+      Delete Chord
+    </button>
+  </div>
+</div>
+<hr />

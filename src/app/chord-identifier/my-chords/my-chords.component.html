@@ -1,0 +1,50 @@
+<div class="container list-group-item">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4 class="lead">Enter At Least 3 Notes Below:</h4>
+      <form [formGroup]="noteForm" (ngSubmit)="onFormSubmit(noteForm)">
+        <div class="container">
+          <div
+            class="form-group col-xs-2"
+            formArrayName="notes"
+            *ngFor="let noteControl of getControls(); let i = index"
+          >
+            <input
+              type="Note"
+              class="form-control"
+              id="notes"
+              [formControlName]="i"
+            />
+          </div>
+        </div>
+        <div class="container pt-4">
+          <button type="button" class="btn btn-primary" (click)="onAddNote()">
+            Add Note
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning"
+            (click)="onRemoveNote()"
+          >
+            Remove Note
+          </button>
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!noteForm.valid"
+          >
+            Submit Chord
+          </button>
+          <button
+            type="reset"
+            class="btn btn-danger"
+            (click)="onResetForm()"
+            [disabled]="!noteForm.valid"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
