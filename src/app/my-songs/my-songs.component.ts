@@ -1,6 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { HTTPService } from '../shared/http.service';
 
 import { Song } from '../shared/song.model';
@@ -12,12 +10,20 @@ import { SongsService } from '../shared/songs.service';
   styleUrls: ['./my-songs.component.css']
 })
 export class MySongsComponent implements OnInit{
+  song: Song;
   loadedSongs: Song[] = [];
+
 
   constructor(private http: HTTPService, private songsService: SongsService) { }
 
   ngOnInit() {
     this.http.fetchSongs();
+    // this.loadedSongs = this.songsService.getSongs();
+    this.songsService.songsChanged.subscribe((songs: Song[]) => {
+      songs = this.songsService.allSongs;
+      this.loadedSongs = songs;
+      // console.log(songs);
+    });
   }
 
 }
