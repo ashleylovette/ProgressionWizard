@@ -12,7 +12,7 @@ export class SongsService {
     this.songsChanged.next(this.allSongs.slice());
   }
 
-  getSongs() {
+  getSongs(): any {
     this.allSongs.slice();
   }
 }

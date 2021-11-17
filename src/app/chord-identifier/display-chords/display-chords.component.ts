@@ -25,6 +25,7 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
       if(this.chordDisplayed = true) {
         this.chordsService.storeChords(this.yourChord);
         this.allChords = this.chordsService.getChords();
+
         console.log(this.chordsService.getChords());
       }
     });
