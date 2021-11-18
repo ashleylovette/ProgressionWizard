@@ -3,11 +3,14 @@ import { FormArray } from "@angular/forms";
 import { Chord } from "@tonaljs/tonal";
 
 import { Subject } from 'rxjs';
+import { TypeChord } from "./chord.model";
+import { Song } from "./song.model";
 
 @Injectable({providedIn: 'root'})
 export class chordsService {
   detectedChord = new Subject<any>();
   chordSaved = new Subject<any>();
+  song: Song;
 
   private allChords: string[] = [];
 
@@ -31,5 +34,9 @@ export class chordsService {
 
   getChords() {
     return this.allChords.slice();
+  }
+
+  saveChordsToSong() {
+
   }
 }
