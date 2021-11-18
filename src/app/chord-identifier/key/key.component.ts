@@ -30,6 +30,7 @@ export class KeyComponent implements OnInit {
     chord = this.yourChord;
 
     this.chordsService.chordSaved.next(this.yourChord);
+    // console.log(this.yourChord);
 
   }
 

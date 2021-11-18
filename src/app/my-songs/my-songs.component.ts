@@ -10,18 +10,22 @@ import { SongsService } from '../shared/songs.service';
   styleUrls: ['./my-songs.component.css']
 })
 export class MySongsComponent implements OnInit{
-  song: Song;
-  loadedSongs: Song[] = [];
+  // songs: Song[] = [
+  //   new Song('C, E, G'),
+  //   new Song('A, E, G')
+  // ];
+  songs: Song[]= [];
 
 
   constructor(private http: HTTPService, private songsService: SongsService) { }
 
   ngOnInit() {
+
     this.http.fetchSongs();
-    // this.loadedSongs = this.songsService.getSongs();
+    this.songs = this.songsService.getSongs();
     this.songsService.songsChanged.subscribe((songs: Song[]) => {
       songs = this.songsService.allSongs;
-      this.loadedSongs = songs;
+      this.songs = songs;
       // console.log(songs);
     });
   }

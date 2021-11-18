@@ -4,7 +4,8 @@ import { Song } from "./song.model";
 
 @Injectable({ providedIn: 'root'})
 export class SongsService {
-  allSongs: Song[];
+  allSongs: Song[]=[];
+  songCreated = new Subject<Song>();
   songsChanged = new Subject<Song[]>();
 
   setSongs(songs: Song[]) {
@@ -14,5 +15,10 @@ export class SongsService {
 
   getSongs(): any {
     this.allSongs.slice();
+  }
+
+  saveSongs(song: Song) {
+    this.allSongs.push(song);
+    this.songsChanged.next(this.allSongs.slice());
   }
 }

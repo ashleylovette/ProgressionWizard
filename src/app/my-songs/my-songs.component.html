@@ -5,19 +5,13 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <span *ngIf="loadedSongs.length < 1">
-        <p>No Songs Available</p>
-      </span>
       <ul class="list-group">
-        <a class="list-group-item" *ngFor="let song of loadedSongs">{{
-          song.chords
-        }}</a>
+        <a href="#" class="list-group-item clearfix" *ngFor="let song of songs">
+          <div class="pull-left">
+            <h4 class="list-group-item-heading">{{ song.chords }}</h4>
+          </div>
+        </a>
       </ul>
     </div>
-    <!-- <div class="col-xs-6">
-      <div class="container">
-        <app-my-song-display></app-my-song-display>
-      </div>
-    </div> -->
   </div>
 </div>

@@ -11,6 +11,7 @@ import { Subscription } from "rxjs";
   providedIn: "root",
 })
 export class HTTPService {
+  song: Song;
   loadedSongs: Song[] = [];
   firebaseRootURL =
     "https://song-wizard-default-rtdb.firebaseio.com/songs.json";
@@ -19,18 +20,16 @@ export class HTTPService {
   constructor(private http: HttpClient, private chordsService: chordsService, private songsService: SongsService) { }
 
 
-  saveSongs() {
-    const song = this.chordsService.getChords();
-    // let chordsString = song.toString();
+  saveSongs(newSong) {
+    this.song = newSong;
 
     this.http
-    .post<Song>(this.firebaseRootURL, song).subscribe((res) => {
-      console.log("Firebase response:", res);
+    .post<Song>(this.firebaseRootURL, newSong).subscribe((newSong) => {
+      console.log(newSong);
     });
   }
 
   fetchSongs(): any {
-    // ATTEMPT ONE
 
     this.http
     .get<{ [key: string]: Song}>(this.firebaseRootURL)
@@ -51,23 +50,6 @@ export class HTTPService {
       .subscribe((songs: Song[]) => {
         console.log(...songs);
       });
-
-
-
-    // ATTEMPT TWO
-
-    //   this.http.get<Song[]>(this.firebaseRootURL)
-    //   .pipe(map(songs => {
-    //     return songs.map(song => {
-    //       return {...song, chords: song.chords, title: song.title, id: song.id };
-    //     });
-    //   }), tap(songs => {
-    //     this.songsService.setSongs(songs);
-    //   })
-    // )
-    // .subscribe(songs => {
-    //   console.log(songs);
-    // });
   }
 }
 
