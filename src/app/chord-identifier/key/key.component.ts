@@ -10,7 +10,6 @@ import { chordsService } from '../../shared/chords.service';
 })
 export class KeyComponent implements OnInit {
   yourChord: string = '';
-  private detectedChordSub: Subscription;
   allChords: string[] = [];
 
 
@@ -19,19 +18,17 @@ export class KeyComponent implements OnInit {
   ngOnInit(): void {
     this.allChords = this.chordsService.getChords();
 
-    this.detectedChordSub = this.chordsService.detectedChord.subscribe((yourChord: string) => {
-      this.yourChord = yourChord;
+    this.chordsService.detectedChord.subscribe((chord: string) => {
+      this.yourChord = chord;
      }
      );
 
   }
 
-  onSaveChord(chord: string) {
-    chord = this.yourChord;
-
+  onSaveChord() {
     this.chordsService.chordSaved.next(this.yourChord);
     // console.log(this.yourChord);
-
+    this.yourChord='';
   }
 
   onDeleteChord() {

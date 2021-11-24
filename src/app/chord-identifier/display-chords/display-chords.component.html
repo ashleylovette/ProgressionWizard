@@ -3,47 +3,69 @@
   <div class="row">
     <div class="col-xs-12">
       <h3 class="lead">Your Chords:</h3>
-      <pre>
-        <span *ngIf="!chordDisplayed">
-          <h4>Display Your Song Here!</h4>
-        </span>
-        <div class="col-xs-4">
-          <ul class="list-group">
-            <a href="#" class="list-group-item displayedChord" style= "text-align: center;" *ngFor="let chord of allChords">
-              <div>
-                <h3>{{ chord }}</h3>
+      <!-- BEGIN FORM -->
+      <form #songForm="ngForm" (ngSubmit)="onSaveSong(songForm)">
+        <div class="container display">
+          <div class="row">
+            <div class="col-xs-12">
+              <!-- SONG TITLE INPUT -->
+              <div class="col-xs-8 form-group" *ngIf="chordDisplayed">
+                <label for="songTitle">Song Title: {{ songTitle }}</label>
+                <input
+                  type="text"
+                  name="songTitle"
+                  id="songTitle"
+                  class="form-control"
+                  placeholder="Enter Your Song Title Here!"
+                  [(ngModel)]="songTitle"
+                />
               </div>
-            </a>
-          </ul>
+
+              <!-- END FORM -->
+
+              <!-- NgIF TEXT -->
+              <span *ngIf="!chordDisplayed">
+                <h3 class="text">Display Your Song Here!</h3>
+              </span>
+
+              <!-- DISPLAY CHORDS -->
+              <div class="col-xs-10">
+                <ul class="list-group chords" *ngFor="let chord of allChords">
+                  <li class="chord list-group-item">{{ chord }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </pre>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 btn-group align-right">
-      <button
-        type="button"
-        class="btn btn-success"
-        (click)="onSaveSong()"
-        [disabled]="!chordDisplayed"
-      >
-        Save Song
-      </button>
-      <button
-        type="button"
-        class="btn btn-warning"
-        [disabled]="!chordDisplayed"
-      >
-        Remove Chord
-      </button>
-      <button
-        type="button"
-        class="btn btn-danger"
-        (click)="onDeleteSong()"
-        [disabled]="!chordDisplayed"
-      >
-        Delete Song
-      </button>
+
+        <!-- BUTTONS -->
+        <div class="row">
+          <div class="col-xs-12 btn-group align-right">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!chordDisplayed"
+            >
+              Save Song
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              [disabled]="!chordDisplayed"
+            >
+              Remove Chord
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="onDeleteSong()"
+              [disabled]="!chordDisplayed"
+            >
+              Delete Song
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

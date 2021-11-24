@@ -3,14 +3,11 @@ import { FormArray } from "@angular/forms";
 import { Chord } from "@tonaljs/tonal";
 
 import { Subject } from 'rxjs';
-import { TypeChord } from "./chord.model";
-import { Song } from "./song.model";
 
 @Injectable({providedIn: 'root'})
 export class chordsService {
   detectedChord = new Subject<any>();
   chordSaved = new Subject<any>();
-  song: Song;
 
   private allChords: string[] = [];
 
@@ -20,15 +17,15 @@ export class chordsService {
     // Check if chord was found, return from function if not
     if(myChord.length === 0){
       console.log('Chord not found for: ' + noteForm.value.notes );
-      return
+      return;
     }
     let singleChord = myChord[0];
     this.detectedChord.next(singleChord);
   }
 
 // Store chords to allChords array
-  storeChords(yourChord) {
-    this.allChords.push(yourChord);
+  storeChords(chord) {
+    this.allChords.push(chord);
     return this.allChords.slice();
   }
 
@@ -36,7 +33,8 @@ export class chordsService {
     return this.allChords.slice();
   }
 
-  saveChordsToSong() {
-
+  clearChords() {
+    this.allChords = [];
   }
+
 }

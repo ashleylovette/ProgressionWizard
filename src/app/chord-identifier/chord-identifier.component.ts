@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { chordsService } from '../shared/chords.service';
+
 
 
 @Component({
@@ -8,15 +8,6 @@ import { chordsService } from '../shared/chords.service';
   templateUrl: './chord-identifier.component.html',
   styleUrls: ['./chord-identifier.component.css']
 })
-export class ChordIdentifierComponent implements OnInit, OnDestroy {
-
-
-  constructor( private chordsService: chordsService) { }
-
-  ngOnInit(): void {
-  }
-
-  ngOnDestroy() {
-  }
+export class ChordIdentifierComponent {
 
 }

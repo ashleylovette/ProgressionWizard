@@ -15,23 +15,25 @@ export class HTTPService {
   loadedSongs: Song[] = [];
   firebaseRootURL =
     "https://song-wizard-default-rtdb.firebaseio.com/songs.json";
-  songsChangedSub: Subscription;
+  callSongsSub: Subscription;
 
   constructor(private http: HttpClient, private chordsService: chordsService, private songsService: SongsService) { }
 
 
-  saveSongs(newSong) {
+  saveSong(newSong) {
     this.song = newSong;
 
     this.http
     .post<Song>(this.firebaseRootURL, newSong).subscribe((newSong) => {
       console.log(newSong);
     });
+
+    this.chordsService.clearChords();
   }
 
   fetchSongs(): any {
 
-    this.http
+   this.callSongsSub = this.http
     .get<{ [key: string]: Song}>(this.firebaseRootURL)
       .pipe(map(resData => {
         const songsArray: Song[] = [];

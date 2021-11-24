@@ -3,16 +3,39 @@ div.container.list-group-item {
   margin-bottom: 50px;
 }
 
-pre {
-  height: 35vmin;
-}
-
 button {
   margin-right: 5px;
+  margin-bottom: 25px;
 }
 
-/* .displayedChord {
-  height: 45px;
-  font-size: x-large;
-} */
+.display {
+  border: 1px solid black;
+  margin-top: 1vmin;
+  margin-bottom: 1vmin;
+  height: 25em;
+  margin-left: -0.75em;
+}
 
+.chord{
+  box-shadow: 0px 8px 17px 2px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12),
+  0px 5px 5px -3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+height: 95px;
+width: 95px;
+padding: 12px 22px;
+margin: 18px 10px 24px 10px;
+font-size: 2.23rem;
+
+}
+
+.chords {
+  display: inline;
+  float: left;
+}
+
+.text {
+  text-align: center;
+}

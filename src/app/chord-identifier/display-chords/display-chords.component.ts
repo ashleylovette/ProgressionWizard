@@ -1,7 +1,8 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
-import { TypeChord } from 'src/app/shared/chord.model';
 import { chordsService } from 'src/app/shared/chords.service';
 import { Song } from 'src/app/shared/song.model';
 import { SongsService } from 'src/app/shared/songs.service';
@@ -26,9 +27,9 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
 
     this.chordSavedSub = this.chordsService.chordSaved.subscribe(chord => {
       this.chordDisplayed = true;
-      this.yourChord = chord;
+      // this.yourChord = chord;
       if(this.chordDisplayed = true) {
-        this.chordsService.storeChords(this.yourChord);
+        this.chordsService.storeChords(chord);
         this.allChords = this.chordsService.getChords();
         console.log(this.allChords);
       }
@@ -39,17 +40,17 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
     this.chordSavedSub.unsubscribe();
   }
 
-  onSaveSong() {
+  onSaveSong(songForm: NgForm) {
     // change array to a string
-    const stringOfChords = this.allChords.toString();
+    const stringOfChords = this.allChords.join(" | ");
 
     // Assign string to newSong: Song
-    this.newSong = new Song(stringOfChords);
+    this.newSong = new Song(stringOfChords, songForm.value.songTitle);
 
     // console.log(this.newSong);
 
-    // send newSong to FB
-    this.http.saveSongs(this.newSong);
+    // send new Song to Firebase
+    this.http.saveSong(this.newSong);
   }
 
   onDeleteSong() {
