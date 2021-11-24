@@ -1,9 +1,11 @@
-<div class="backdrop"></div>
+<div class="backdrop" (click)="onClose()"></div>
 
 <div class="alert-box">
-  <p>Alert!</p>
+  <p>Song Added to "My Songs"!</p>
 
   <div class="alert-box-actions">
-    <button type="button" class="btn btn-primary">Close</button>
+    <button type="button" class="btn btn-primary" (click)="onClose()">
+      Close
+    </button>
   </div>
 </div>

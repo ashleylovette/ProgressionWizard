@@ -5,6 +5,7 @@ import { Song } from "./song.model";
 @Injectable({ providedIn: 'root'})
 export class SongsService {
   allSongs: Song[]=[];
+  songAdded = new Subject<Song>();
   songsChanged = new Subject<Song[]>();
 
   setSongs(songs: Song[]) {

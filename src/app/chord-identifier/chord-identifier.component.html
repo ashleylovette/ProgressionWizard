@@ -1,4 +1,5 @@
 <div class="container">
+  <app-alert *ngIf="songAdded" (close)="onClosed()"></app-alert>
   <div class="row">
     <div class="col-xs-6">
       <app-key></app-key>
