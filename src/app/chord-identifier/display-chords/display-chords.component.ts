@@ -51,6 +51,9 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
 
     // send new Song to Firebase
     this.http.saveSong(this.newSong);
+
+    // Alert component
+    this.songsService.songsChanged.next();
   }
 
   onDeleteSong() {
