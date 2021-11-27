@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 export class chordsService {
   detectedChord = new Subject<any>();
   chordSaved = new Subject<any>();
+  noChordAvailable = new Subject<any>();
 
   private allChords: string[] = [];
 
@@ -16,8 +17,8 @@ export class chordsService {
 
     // Check if chord was found, return from function if not
     if(myChord.length === 0){
-      console.log('Chord not found for: ' + noteForm.value.notes );
-      return;
+      this.noChordAvailable.next(noteForm);
+      // console.log("Chord not found for:" + noteForm.value.notes);
     }
     let singleChord = myChord[0];
     this.detectedChord.next(singleChord);

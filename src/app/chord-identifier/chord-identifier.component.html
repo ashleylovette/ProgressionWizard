@@ -6,6 +6,19 @@
     </div>
   </div>
 
+  <span *ngIf="chordNotFound">
+    <div class="alert alert-danger" role="alert">
+      <h5>CHORD NOT FOUND FOR: {{ invalidNotes }}</h5>
+      <p>
+        Important Note: Just because our system doesn't have a name for your
+        chord, doesn't mean it does not exist. If it sounds good, it is good!
+      </p>
+      <button class="btn btn-danger alert-btn" (click)="onClosed()">
+        Okay!
+      </button>
+    </div>
+  </span>
+
   <div class="row">
     <div class="col-xs-8">
       <app-my-chords></app-my-chords>

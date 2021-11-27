@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { chordsService } from '../chords.service';
 
 
 @Component({
@@ -9,10 +10,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class AlertComponent implements OnInit {
   @Output() close = new EventEmitter();
 
-  constructor() { }
+  constructor( private chordsService: chordsService ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onClose() {
     this.close.emit();

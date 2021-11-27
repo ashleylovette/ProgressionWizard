@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 
 import { chordsService } from '../shared/chords.service';
 import { HTTPService } from '../shared/http.service';
@@ -11,7 +10,7 @@ import { SongsService } from '../shared/songs.service';
   templateUrl: './my-songs.component.html',
   styleUrls: ['./my-songs.component.css']
 })
-export class MySongsComponent implements OnInit{
+export class MySongsComponent implements OnInit, OnDestroy{
 
   // STATIC DATA
   // songs: Song[] = [
@@ -30,7 +29,10 @@ export class MySongsComponent implements OnInit{
       this.songs = songs;
       // console.log(songs);
     });
+  }
 
+  ngOnDestroy() {
+    this.http.callSongsSub.unsubscribe();
   }
 
 }

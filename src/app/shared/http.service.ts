@@ -50,7 +50,7 @@ export class HTTPService {
       })
       )
       .subscribe((songs: Song[]) => {
-        console.log(...songs);
+        // console.log(...songs);
       });
   }
 }

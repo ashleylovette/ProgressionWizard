@@ -9,7 +9,7 @@ import { SongsService } from './shared/songs.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   title = 'SongWizard';
   yourChord: string;
 
@@ -17,11 +17,5 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor( private chordsService: chordsService, private songsService: SongsService, private httpService: HTTPService) {}
 
  ngOnInit() {
- }
-
- ngOnDestroy() {
-  this.chordsService.detectedChord.unsubscribe();
-  this.songsService.songsChanged.unsubscribe();
-  this.httpService.callSongsSub.unsubscribe();
  }
 }
