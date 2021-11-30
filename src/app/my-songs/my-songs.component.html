@@ -4,15 +4,14 @@
     <hr />
   </div>
   <div class="row">
-    <div class="col-xs-6">
-      <ul class="list-group">
-        <a href="#" class="list-group-item clearfix" *ngFor="let song of songs">
-          <div class="pull-left">
-            <h3 class="list-group-item-heading">{{ song.title }}</h3>
-            <h4 class="list-group-item-heading">{{ song.chords }}</h4>
-          </div>
-        </a>
-      </ul>
+    <div class="col-md-5">
+      <app-my-song-display
+        *ngFor="let songEl of songs"
+        [song]="songEl"
+      ></app-my-song-display>
+    </div>
+    <div class="col-md-7">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

@@ -14,6 +14,8 @@ import { KeyComponent } from './chord-identifier/key/key.component';
 import { MySongsComponent } from './my-songs/my-songs.component';
 import { MySongDisplayComponent } from './my-songs/my-song-display/my-song-display.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SongEditComponent } from './my-songs/song-edit/song-edit.component';
+import { SongDetailComponent } from './my-songs/song-detail/song-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AppRoutingModule } from './app-routing.module';
     AlertComponent,
     ChordIdentifierComponent,
     MySongsComponent,
-    MySongDisplayComponent
+    MySongDisplayComponent,
+    SongEditComponent,
+    SongDetailComponent
   ],
   imports: [
     BrowserModule,
