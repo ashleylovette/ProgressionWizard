@@ -28,7 +28,6 @@ export class SongsService {
   }
 
   deleteSong(index) {
-    console.log(index);
     this.allSongs.splice(index, 1);
     this.songsChanged.next(this.allSongs.slice());
   }

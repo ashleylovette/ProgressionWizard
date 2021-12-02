@@ -10,7 +10,7 @@ import { SongsService } from './shared/songs.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'SongWizard';
+  title = 'ProgressionWizard';
   yourChord: string;
 
 
