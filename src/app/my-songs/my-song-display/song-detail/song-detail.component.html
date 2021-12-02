@@ -6,7 +6,9 @@
         <h3>Chords: {{ song.chords }}</h3>
       </div>
       <div class="row">
-        <button class="btn btn-danger">Delete Song</button>
+        <button class="btn btn-danger" (click)="onDeleteSong()">
+          Delete Song
+        </button>
       </div>
     </div>
   </div>

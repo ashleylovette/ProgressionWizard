@@ -26,4 +26,8 @@ export class SongDetailComponent implements OnInit {
         });
   }
 
+  onDeleteSong() {
+    this.songsService.deleteSong(this.id);
+  }
+
 }
