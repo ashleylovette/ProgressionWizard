@@ -5,7 +5,6 @@ import { Song } from './song.model';
 import { map, tap } from 'rxjs/operators';
 import { chordsService } from "./chords.service";
 import { SongsService } from "./songs.service";
-import { Subscription } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -15,7 +14,6 @@ export class HTTPService {
   loadedSongs: Song[] = [];
   firebaseRootURL =
     "https://song-wizard-default-rtdb.firebaseio.com/songs.json";
-  callSongsSub: Subscription;
 
   constructor(private http: HttpClient, private chordsService: chordsService, private songsService: SongsService) { }
 
@@ -32,8 +30,7 @@ export class HTTPService {
   }
 
   fetchSongs(): any {
-
-   this.callSongsSub = this.http
+    return this.http
     .get<{ [key: string]: Song}>(this.firebaseRootURL)
       .pipe(map(resData => {
         const songsArray: Song[] = [];
@@ -48,10 +45,7 @@ export class HTTPService {
       tap(songs => {
         this.songsService.setSongs(songs);
       })
-      )
-      .subscribe((songs: Song[]) => {
-        // console.log(...songs);
-      });
+      );
   }
 }
 

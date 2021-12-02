@@ -10,13 +10,10 @@ import { Song } from 'src/app/shared/song.model';
 })
 export class MySongDisplayComponent implements OnInit {
   @Input() song: Song;
+  @Input() index: number;
 
   constructor() { }
 
   ngOnInit() {
-
   }
-
-
-
 }

@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { HTTPService } from '../shared/http.service';
 import { Song } from '../shared/song.model';
 import { SongsService } from '../shared/songs.service';
@@ -16,12 +18,14 @@ export class MySongsComponent implements OnInit, OnDestroy{
   //   new Song('C, E, G'),
   //   new Song('A, E, G')
   // ];
+  songsChangedSub = new Subscription;
+
 
   constructor(private http: HTTPService, private songsService: SongsService) {}
 
   ngOnInit() {
-  this.http.fetchSongs();
-  this.songsService.songsChanged
+  this.http.fetchSongs().subscribe();
+  this.songsChangedSub = this.songsService.songsChanged
   .subscribe(
     (songs: Song[]) => {
       this.songs = songs;
@@ -32,7 +36,6 @@ export class MySongsComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy() {
-    this.http.callSongsSub.unsubscribe();
+    this.songsChangedSub.unsubscribe();
   }
-
 }

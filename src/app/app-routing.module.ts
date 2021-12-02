@@ -3,15 +3,16 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { ChordIdentifierComponent } from "./chord-identifier/chord-identifier.component";
 import { MySongsComponent } from "./my-songs/my-songs.component";
-import { SongDetailComponent } from "./my-songs/song-detail/song-detail.component";
-import { SongEditComponent } from "./my-songs/song-edit/song-edit.component";
+import { SongDetailComponent } from "./my-songs/my-song-display/song-detail/song-detail.component";
+import { SongStartComponent } from "./my-songs/song-start/song-start.component";
+import { SongsResolverService } from "./my-songs/songs-resolver.service";
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/chord-identifier', pathMatch: 'full'},
   { path: 'chord-identifier', component: ChordIdentifierComponent },
   { path: 'songs', component: MySongsComponent, children: [
-    { path: '', component: SongEditComponent },
-    { path: ':id', component: SongDetailComponent}
+    { path: '', component: SongStartComponent },
+    { path: ':id', component: SongDetailComponent, resolve: [SongsResolverService]}
   ] }
 ];
 

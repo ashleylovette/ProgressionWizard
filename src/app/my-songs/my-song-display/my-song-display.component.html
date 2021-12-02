@@ -1,8 +1,13 @@
 <ul class="list-group">
-  <a href="#" class="list-group-item clearfix">
+  <a
+    style="cursor: pointer"
+    [routerLink]="[index]"
+    routerLinkActive="active"
+    class="list-group-item clearfix"
+  >
     <div class="pull-left">
-      <h3 class="list-group-item-heading">{{ song.title }}</h3>
-      <h4 class="list-group-item-heading">{{ song.chords }}</h4>
+      <h4 class="list-group-item-heading">{{ song.title | uppercase }}</h4>
+      <h4 class="list-group-item-heading lead">{{ song.chords }}</h4>
     </div>
   </a>
 </ul>

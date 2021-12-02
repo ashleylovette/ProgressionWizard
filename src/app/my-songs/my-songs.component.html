@@ -4,13 +4,14 @@
     <hr />
   </div>
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <app-my-song-display
-        *ngFor="let songEl of songs"
+        *ngFor="let songEl of songs; let i = index"
         [song]="songEl"
+        [index]="i"
       ></app-my-song-display>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -6,6 +6,8 @@ import { Song } from "./song.model";
 export class SongsService {
   allSongs: Song[]=[];
   songsChanged = new Subject<Song[]>();
+  songSelected= new Subject;
+
 
   setSongs(songs: Song[]) {
     this.allSongs = songs;
@@ -13,11 +15,16 @@ export class SongsService {
   }
 
   getSongs(): any {
-    this.allSongs.slice();
+   return this.allSongs.slice();
+  }
+
+  getSong(index: number) {
+    return this.allSongs[index];
   }
 
   saveSongs(song: Song) {
     this.allSongs.push(song);
     this.songsChanged.next(this.allSongs.slice());
   }
+
 }
