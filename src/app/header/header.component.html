@@ -21,8 +21,13 @@
           </a>
           <ul class="dropdown-menu">
             <li>
+              <a routerLink="/auth">Sign Up</a>
+            </li>
+            <li>
               <a href="#">Log In</a>
             </li>
+          </ul>
+          <ul class="dropdown-menu" *ngIf="isLoggedIn">
             <li>
               <a href="#">Log Out</a>
             </li>

@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SongDetailComponent } from './my-songs/my-song-display/song-detail/song-detail.component';
 import { SongStartComponent } from './my-songs/song-start/song-start.component';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
     MySongDisplayComponent,
     SongDetailComponent,
     SongStartComponent,
-    DropdownDirective
+    DropdownDirective,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
