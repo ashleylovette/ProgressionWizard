@@ -5,12 +5,13 @@ import { throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { HTTPService } from "./http.service";
 
-interface AuthResponseData {
+export interface AuthResponseData {
   idToken: string;
   email: string;
   refreshToken: string;
   expiresIn: string;
   localId: string;
+  registered?: boolean;
 }
 
 
@@ -21,7 +22,7 @@ export class AuthService {
   constructor( private http: HttpClient, private httpService: HTTPService) {}
 
   signup( email: string, password: string) {
-    return this.http.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + this.httpService.apiKey,
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + this.httpService.apiKey,
     {
       email: email,
       password: password,
@@ -39,6 +40,15 @@ export class AuthService {
       return throwError(errorMessage);
     })
     );
+  }
+
+  login(email: string, password: string) {
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + this.httpService.apiKey,
+    {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    });
   }
 
 }
