@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { AuthResponseData, AuthService } from '../shared/auth.service';
+import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -10,11 +11,11 @@ import { AuthResponseData, AuthService } from '../shared/auth.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
- isLoginMode: boolean = false;
+ isLoginMode: boolean = true;
  isLoading: boolean = false;
  error: string = null;
 
-  constructor( private authService: AuthService) { }
+  constructor( private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {}
 
@@ -38,10 +39,12 @@ export class AuthComponent implements OnInit {
       authObs.subscribe(resData => {
         console.log(resData);
         this.isLoading = false;
+        this.router.navigate(['/chord-identifier']);
       }, errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;
+        this.router
     });
 
     form.reset();
