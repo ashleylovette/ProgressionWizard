@@ -18,6 +18,7 @@ import { SongDetailComponent } from './my-songs/my-song-display/song-detail/song
 import { SongStartComponent } from './my-songs/song-start/song-start.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthComponent } from './auth/auth.component';
     SongDetailComponent,
     SongStartComponent,
     DropdownDirective,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

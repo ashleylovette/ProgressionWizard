@@ -14,6 +14,8 @@ export class HTTPService {
   loadedSongs: Song[] = [];
   firebaseRootURL =
     "https://song-wizard-default-rtdb.firebaseio.com/songs.json";
+  apiKey: string = "AIzaSyD5dwpdjLwIWGHVyxxLYho0nh4m8zck1BY";
+
 
   constructor(private http: HttpClient, private chordsService: chordsService, private songsService: SongsService) { }
 

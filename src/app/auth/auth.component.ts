@@ -1,5 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,16 +9,39 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
- isLoggedIn = false;
- isLoginMode = false;
+ isLoginMode: boolean = false;
+ isLoading: boolean = false;
+ error: string = null;
 
-  constructor() { }
+  constructor( private authService: AuthService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmitAuth(form: NgForm) {
-    console.log(form.value);
-    form.reset();
+    if (!form.valid) {
+      return;
+    }
+    const email = form.value.email;
+    const password = form.value.password;
+
+    this.isLoading = true;
+    if(this.isLoginMode) {
+      // ...
+    } else {
+      this.authService.signup(email, password)
+      .subscribe(resData => {
+        console.log(resData);
+        this.isLoading = false;
+      }, errorMessage => {
+        console.log(errorMessage);
+        this.error = errorMessage;
+        this.isLoading = false;
+      });
+      form.reset();
+    }
+  }
+
+  onSwitchMode() {
+    this.isLoginMode = !this.isLoginMode;
   }
 }
