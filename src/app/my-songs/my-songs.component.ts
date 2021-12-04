@@ -38,4 +38,8 @@ export class MySongsComponent implements OnInit, OnDestroy{
   ngOnDestroy() {
     this.songsChangedSub.unsubscribe();
   }
+
+  onSaveSongs() {
+    this.http.saveSongs();
+  }
 }
