@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 import { chordsService } from './shared/chords.service';
 import { HTTPService } from './shared/http.service';
@@ -11,11 +12,10 @@ import { SongsService } from './shared/songs.service';
 })
 export class AppComponent implements OnInit {
   title = 'ProgressionWizard';
-  yourChord: string;
 
+  constructor(private authService: AuthService) {}
 
-  constructor( private chordsService: chordsService, private songsService: SongsService, private httpService: HTTPService) {}
-
- ngOnInit() {
+  ngOnInit() {
+    this.authService.autoLogin();
  }
 }
