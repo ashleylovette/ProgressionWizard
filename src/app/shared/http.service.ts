@@ -1,8 +1,8 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
 import { Song } from './song.model';
-import { exhaustMap, map, take, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { chordsService } from "./chords.service";
 import { SongsService } from "./songs.service";
 import { AuthService } from "../auth/auth.service";
