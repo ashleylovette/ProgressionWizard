@@ -5,13 +5,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AlertComponent } from './shared/alert/alert.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DropdownDirective } from './shared/dropdown.directive';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { ChordModule } from './chord-identifier/chord.module';
 import { SongsModule } from './my-songs/songs.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +23,8 @@ import { SongsModule } from './my-songs/songs.module';
     ReactiveFormsModule,
     AppRoutingModule,
     ChordModule,
-    SongsModule
+    SongsModule,
+    AuthModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
