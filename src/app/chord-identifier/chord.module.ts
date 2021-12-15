@@ -18,7 +18,7 @@ import { MyChordsComponent } from "./my-chords/my-chords.component";
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    RouterModule.forChild([{ path: 'chord-identifier', component: ChordIdentifierComponent }])
+    RouterModule.forChild([{ path: '', component: ChordIdentifierComponent }])
   ]
 })
 export class ChordModule{}

@@ -7,7 +7,9 @@ import { MySongsComponent } from "./my-songs.component";
 import { SongStartComponent } from "./song-start/song-start.component";
 import { SongsResolverService } from "./songs-resolver.service";
 
-const routes = [ { path: 'songs', component: MySongsComponent,
+const routes = [
+  { path: '',
+component: MySongsComponent,
 canActivate: [AuthGuard],
 children: [
   { path: '', component: SongStartComponent },
