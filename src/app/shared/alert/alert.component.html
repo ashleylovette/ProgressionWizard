@@ -1,11 +1,11 @@
-<div class="backdrop" (click)="onClose()"></div>
+<div class="backdrop"></div>
 
 <div class="alert-box">
-  <p>Song Added to "My Songs"!</p>
-
+  <h4>Song Added!</h4>
+  <div [innerHTML]="alertMsg">
+    <p>{{ alertMsg }}</p>
+  </div>
   <div class="alert-box-actions">
-    <button type="button" class="btn btn-primary" (click)="onClose()">
-      Close
-    </button>
+    <button type="button" class="btn btn-primary">Close</button>
   </div>
 </div>

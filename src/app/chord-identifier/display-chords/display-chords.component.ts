@@ -15,12 +15,21 @@ import { HTTPService } from '../../shared/http.service';
 })
 export class DisplayChordsComponent implements OnInit, OnDestroy {
   yourChord: string='';
-  chordSavedSub: Subscription;
-  allChords: string[] =[];
-  newSong: Song;
-  chordDisplayed: boolean = false;
 
-  constructor(private chordsService: chordsService, private http: HTTPService, private songsService: SongsService) { }
+  chordSavedSub: Subscription;
+  songSavedSub: Subscription;
+
+  allChords: string[] =[];
+  alert: string;
+  newSong: Song;
+
+  chordDisplayed: boolean = false;
+  songWasSaved: boolean = false;
+
+  constructor(
+    private chordsService: chordsService,
+    private http: HTTPService,
+    private songsService: SongsService) { }
 
   ngOnInit(): void {
 
@@ -33,6 +42,7 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
         console.log(this.allChords);
       }
     });
+
   }
 
   ngOnDestroy() {
@@ -51,8 +61,8 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
     // send new Song to Firebase
     this.http.saveSong(this.newSong);
 
-    // Alert component
-    this.songsService.songsChanged.next();
+    // pass to the alert component
+    this.songsService.songSaved.next(this.newSong);
   }
 
   onDeleteSong() {

@@ -6,7 +6,7 @@ import { Song } from "./song.model";
 export class SongsService {
   allSongs: Song[]=[];
   songsChanged = new Subject<Song[]>();
-  songSelected= new Subject;
+  songSaved = new Subject<Song>();
 
 
   setSongs(songs: Song[]) {

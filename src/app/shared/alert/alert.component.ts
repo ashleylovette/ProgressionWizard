@@ -1,6 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { chordsService } from '../chords.service';
-
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-alert',
@@ -8,13 +6,12 @@ import { chordsService } from '../chords.service';
   styleUrls: ['./alert.component.css']
 })
 export class AlertComponent implements OnInit {
-  @Output() close = new EventEmitter();
+  @Input() alertMsg: string;
+  @Output() closeAddSongAlert = new EventEmitter<void>();
 
-  constructor( private chordsService: chordsService ) { }
+  constructor() { }
 
-  ngOnInit(): void {}
-
-  onClose() {
-    this.close.emit();
+  ngOnInit() {
   }
+
 }
