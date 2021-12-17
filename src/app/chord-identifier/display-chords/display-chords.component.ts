@@ -17,14 +17,12 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
   yourChord: string='';
 
   chordSavedSub: Subscription;
-  songSavedSub: Subscription;
 
   allChords: string[] =[];
-  alert: string;
   newSong: Song;
 
+  songSaved: boolean = false;
   chordDisplayed: boolean = false;
-  songWasSaved: boolean = false;
 
   constructor(
     private chordsService: chordsService,
@@ -50,19 +48,17 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
   }
 
   onSaveSong(songForm: NgForm) {
+    this.songSaved = true;
     // change array to a string
     const stringOfChords = this.allChords.join(" | ");
 
     // Assign string to newSong: Song
     this.newSong = new Song(stringOfChords, songForm.value.songTitle);
 
-    // console.log(this.newSong);
-
     // send new Song to Firebase
     this.http.saveSong(this.newSong);
 
-    // pass to the alert component
-    this.songsService.songSaved.next(this.newSong);
+
   }
 
   onDeleteSong() {
@@ -70,6 +66,10 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
     this.chordDisplayed=false;
   }
 
-
+  onCloseAlert() {
+    this.songSaved = false;
+    this.allChords = [];
+    this.chordDisplayed = false;
+  }
 
 }

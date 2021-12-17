@@ -11,15 +11,14 @@ import { SongsService } from '../shared/songs.service';
 })
 export class ChordIdentifierComponent implements OnInit, OnDestroy{
   invalidNotes: string[];
-  alert: string;
   songAdded: boolean = false;
   chordNotFound: boolean = false;
   songsAddedSub = new Subscription;
   chordNotFoundSub= new Subscription;
-  savedAlertSub = new Subscription;
 
-
-  constructor( private songsService: SongsService, private chordsService: chordsService) {}
+  constructor(
+    private songsService: SongsService,
+    private chordsService: chordsService) {}
 
   ngOnInit() {
     this.songsAddedSub = this.songsService.songsChanged.subscribe((song) => {
@@ -28,17 +27,11 @@ export class ChordIdentifierComponent implements OnInit, OnDestroy{
     this.chordNotFoundSub = this.chordsService.noChordAvailable.subscribe((noteForm) => {
       this.noChordFound(noteForm);
     });
-
-    this.savedAlertSub = this.songsService.songSaved.subscribe(song => {
-        this.alert =`Title: ${song.title} <br> Chords: ${song.chords}`;
-        setTimeout((alert) => this.handleCloseModal(), 4000);
-    });
   }
 
   ngOnDestroy() {
     this.songsAddedSub.unsubscribe();
     this.chordNotFoundSub.unsubscribe();
-    this.savedAlertSub.unsubscribe();
   }
 
   onClosed() {
@@ -53,9 +46,4 @@ export class ChordIdentifierComponent implements OnInit, OnDestroy{
       console.log("Chord Not Found For: " + this.invalidNotes + "!");
     } else return;
   }
-
-  handleCloseModal() {
-    this.alert = null;
-  }
-
 }
