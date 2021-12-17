@@ -39,3 +39,7 @@ font-size: 2.23rem;
 .text {
   text-align: center;
 }
+
+.alert {
+  margin-top: 1.5rem;
+}
