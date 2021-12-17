@@ -1,10 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
-
-import { chordsService } from './shared/chords.service';
-import { HTTPService } from './shared/http.service';
-import { SongsService } from './shared/songs.service';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +8,12 @@ import { SongsService } from './shared/songs.service';
 })
 export class AppComponent implements OnInit {
   title = 'ProgressionWizard';
+  authenticated: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.autoLogin();
+
  }
 }

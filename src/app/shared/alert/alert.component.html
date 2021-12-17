@@ -3,9 +3,11 @@
 <div class="alert-box">
   <h4>Song Added!</h4>
   <div [innerHTML]="alertMsg">
-    <p>{{ alertMsg }}</p>
+    <h5>{{ alertMsg }}</h5>
   </div>
   <div class="alert-box-actions">
-    <button type="button" class="btn btn-primary">Close</button>
+    <button type="button" class="btn btn-primary" (click)="onCloseModal()">
+      Close
+    </button>
   </div>
 </div>

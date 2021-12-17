@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Song } from "./song.model";
 
@@ -7,7 +7,7 @@ export class SongsService {
   allSongs: Song[]=[];
   songsChanged = new Subject<Song[]>();
   songSaved = new Subject<Song>();
-
+  alertMessage: string;
 
   setSongs(songs: Song[]) {
     this.allSongs = songs;
@@ -24,12 +24,16 @@ export class SongsService {
 
   saveSongs(song: Song) {
     this.allSongs.push(song);
+    this.songSaved.next(song);
     this.songsChanged.next(this.allSongs.slice());
   }
 
   deleteSong(index) {
-    this.allSongs.splice(index, 1);
-    this.songsChanged.next(this.allSongs.slice());
+    if(index !== -1) {
+      this.songSaved.next(this.allSongs[index]);
+      this.allSongs.splice(index, 1);
+      this.songsChanged.next(this.allSongs.slice());
+    }
   }
 
 }

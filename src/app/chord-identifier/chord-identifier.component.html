@@ -1,13 +1,10 @@
-<app-alert [alertMsg]="alert" *ngIf="alert"></app-alert>
+<app-alert
+  [alertMsg]="alert"
+  *ngIf="alert"
+  [closeModal]="handleCloseModal()"
+></app-alert>
 
 <div class="container">
-  <!-- <div class="alert alert-info alert-dismissable" role="alert">
-    <button type="button" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <h5>Log in to save and access your songs</h5>
-  </div> -->
-
   <div class="row">
     <div class="col-xs-6">
       <app-key></app-key>
