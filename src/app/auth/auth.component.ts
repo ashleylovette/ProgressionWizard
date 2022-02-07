@@ -14,6 +14,7 @@ export class AuthComponent implements OnInit {
  isLoginMode: boolean = true;
  isLoading: boolean = false;
  error: string = null;
+ selected: boolean = false;
 
   constructor( private authService: AuthService, private router: Router) { }
 
