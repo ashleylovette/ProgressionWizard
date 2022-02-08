@@ -61,17 +61,17 @@
 
         <!-- BUTTONS -->
         <div class="row">
-          <div class="col-xs-12 btn-group align-right">
+          <div class="col-xs-12 align-right">
             <button
               type="submit"
-              class="btn btn-success"
+              class="btn submit"
               [disabled]="!chordDisplayed"
             >
               Save Song
             </button>
             <button
               type="button"
-              class="btn btn-danger"
+              class="btn delete"
               (click)="onDeleteSong()"
               [disabled]="!chordDisplayed"
             >

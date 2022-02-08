@@ -18,26 +18,18 @@
           </div>
         </div>
         <div class="container pt-4">
-          <button type="button" class="btn btn-primary" (click)="onAddNote()">
+          <button type="button" class="btn add" (click)="onAddNote()">
             Add Note
           </button>
-          <button
-            type="button"
-            class="btn btn-warning"
-            (click)="onRemoveNote()"
-          >
+          <button type="button" class="btn remove" (click)="onRemoveNote()">
             Remove Note
           </button>
-          <button
-            type="submit"
-            class="btn btn-success"
-            [disabled]="!noteForm.valid"
-          >
+          <button type="submit" class="btn submit" [disabled]="!noteForm.valid">
             Submit Chord
           </button>
           <button
             type="reset"
-            class="btn btn-danger"
+            class="btn reset"
             (click)="onResetForm()"
             [disabled]="!noteForm.valid"
           >
