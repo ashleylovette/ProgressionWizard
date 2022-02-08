@@ -1,25 +1,27 @@
-<div class="container card">
-  <div class="col-xs-6">
-    <h2 class="lead">Your chord:</h2>
-  </div>
-  <div>
-    <h2>{{ yourChord }}</h2>
-  </div>
-  <div class="container btn-group">
-    <button
-      class="btn btn-primary"
-      (click)="onSaveChord()"
-      [disabled]="yourChord === '' || null"
-    >
-      Save Chord
-    </button>
-    <button
-      class="btn btn-danger"
-      (click)="onDeleteChord()"
-      [disabled]="yourChord === '' || null"
-    >
-      Delete Chord
-    </button>
+<div class="my-row">
+  <div class="container card">
+    <div class="text">
+      <h2 class="lead">Your chord:</h2>
+      <div class="chord-box">
+        <h2 class="your-chord text-center">{{ yourChord }}</h2>
+      </div>
+    </div>
+    <div class="container btn-group">
+      <button
+        class="btn save"
+        (click)="onSaveChord()"
+        [disabled]="yourChord === '' || null"
+      >
+        Save Chord
+      </button>
+      <button
+        class="btn delete"
+        (click)="onDeleteChord()"
+        [disabled]="yourChord === '' || null"
+      >
+        Delete Chord
+      </button>
+    </div>
   </div>
 </div>
 <hr />

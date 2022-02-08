@@ -1,3 +1,7 @@
+  .container {
+    position: relative;
+  }
+
   input[type=text] {
   border: none;
   border-bottom: 2px solid black;
@@ -19,4 +23,28 @@ input.ng-invalid.ng-touched {
 
 .help-block {
   color: red;
+}
+
+button.add {
+  background-color: var(--var-blue);
+  color: white;
+}
+
+button.reset {
+  border: 2px solid var(--var-blue);
+  color: var(--var-blue);
+  background-color: white;
+
+}
+
+button.submit {
+  background-image: var(--gradient);
+  color: white;
+}
+
+button.remove {
+  border: 2px solid var(--var-green);
+  color: var(--var-green);
+  background-color: white;
+
 }
