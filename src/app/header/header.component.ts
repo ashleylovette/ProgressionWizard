@@ -14,9 +14,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-   this.userSub = this.authService.user.subscribe(user => {
-    this.isSignedIn = !!user;
-   });
+    this.authService.autoLogin();
+
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isSignedIn = !!user;
+     });
   }
 
   ngOnDestroy() {

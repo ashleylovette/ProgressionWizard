@@ -1,0 +1,37 @@
+.navbar {
+  background-image: var(--gradient);
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.1em;
+}
+
+a{
+  color: white;
+}
+
+.fixed {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.active {
+  background-color: white;
+}
+
+.hover:hover{
+  transform: translateY(-0.2rem);
+}
+
+.hover{
+  background-image: var(--gradient);
+  margin: 0.5rem
+}
+
+a.dropdown-toggle.your-account {
+  background-color: transparent;
+}
+
+

@@ -1,7 +1,12 @@
-<div class="main-content">
+<div>
   <app-header></app-header>
   <main>
-    <div class="container">
+    <div class="container main-content">
+      <div class="container" *ngIf="!isSignedIn">
+        <div class="alert alert-info" role="alert">
+          <h5>Log in to save and access your songs</h5>
+        </div>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </main>

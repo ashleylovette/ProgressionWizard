@@ -1,21 +1,24 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a href="#" class="navbar-brand">ProgressionWizard</a>
-    </div>
+<div class="fixed">
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">ProgressionWizard</a>
+      </div>
 
-    <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active">
-          <a routerLink="/chord-identifier">Chord Identifier</a>
+          <a routerLink="/chord-identifier" class="hover">Chord Identifier</a>
         </li>
         <li routerLinkActive="active" *ngIf="isSignedIn">
-          <a routerLink="/songs">My Songs</a>
+          <a class="hover" routerLink="/songs">My Songs</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropdown>
-          <a style="cursor: pointer" class="dropdown-toggle" role="button"
+          <a
+            style="cursor: pointer"
+            class="dropdown-toggle your-account"
+            role="button"
             >Your Account
             <span class="caret"></span>
           </a>
@@ -32,11 +35,5 @@
         </li>
       </ul>
     </div>
-  </div>
-</nav>
-
-<div class="container" *ngIf="!isSignedIn">
-  <div class="alert alert-info" role="alert">
-    <h5>Log in to save and access your songs</h5>
-  </div>
+  </nav>
 </div>

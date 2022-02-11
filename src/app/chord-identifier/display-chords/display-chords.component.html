@@ -1,5 +1,5 @@
 <hr />
-<div class="container">
+<div class="container main">
   <div class="row">
     <div class="col-xs-12">
       <h3 class="lead">Your Chords:</h3>
@@ -65,7 +65,7 @@
             <button
               type="submit"
               class="btn submit"
-              [disabled]="!chordDisplayed"
+              [disabled]="!chordDisplayed || isSignedIn"
             >
               Save Song
             </button>

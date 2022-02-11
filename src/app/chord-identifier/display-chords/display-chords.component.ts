@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { chordsService } from 'src/app/shared/chords.service';
 import { Song } from 'src/app/shared/song.model';
 import { SongsService } from 'src/app/shared/songs.service';
@@ -15,19 +16,18 @@ import { HTTPService } from '../../shared/http.service';
 })
 export class DisplayChordsComponent implements OnInit, OnDestroy {
   yourChord: string='';
-
   chordSavedSub: Subscription;
-
   allChords: string[] =[];
   newSong: Song;
-
   songSaved: boolean = false;
+  isSignedIn: boolean = false;
   chordDisplayed: boolean = false;
+  signedInSub = new Subscription;
 
   constructor(
     private chordsService: chordsService,
     private http: HTTPService,
-    private songsService: SongsService) { }
+    private authService: AuthService) { }
 
   ngOnInit(): void {
 
@@ -40,6 +40,10 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
         console.log(this.allChords);
       }
     });
+
+    this.signedInSub = this.authService.user.subscribe(user => {
+      this.isSignedIn = true;
+     });
 
   }
 
