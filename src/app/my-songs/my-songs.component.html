@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <div class="row">
     <h2>My Songs:</h2>
     <h4 class="lead">Remember to save your changes!</h4>
@@ -8,7 +8,7 @@
   </div>
   <hr />
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 list-container">
       <app-my-song-display
         *ngFor="let songEl of songs; let i = index"
         [song]="songEl"
