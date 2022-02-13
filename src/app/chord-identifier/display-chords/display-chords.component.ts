@@ -67,6 +67,7 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
 
   onDeleteSong() {
     this.allChords =[];
+    this.chordsService.clearChords();
     this.chordDisplayed=false;
   }
 
