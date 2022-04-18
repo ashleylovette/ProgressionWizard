@@ -46,7 +46,7 @@ export class HTTPService {
 
   fetchSongs(): any {
   return this.http
-    .get<{ [key: string]: Song}>(this.firebaseRootURL,)
+    .get<{ [key: string]: Song}>(this.firebaseRootURL)
       .pipe(map(resData => {
         const songsArray: Song[] = [];
         for (const key in resData) {
