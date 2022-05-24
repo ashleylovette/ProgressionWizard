@@ -1,10 +1,10 @@
 .navbar {
-  background-image: var(--gradient);
+  background: black;
   position: fixed;
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 0.1em;
+  padding: 1rem 4rem;
 }
 
 a{
@@ -17,21 +17,44 @@ a{
   right: 0;
 }
 
-.active {
+/* .active {
   background-color: white;
-}
+} */
 
-.hover:hover{
+/* .hover:hover{
   transform: translateY(-0.2rem);
 }
 
 .hover{
-  background-image: var(--gradient);
+  background: black;
   margin: 0.5rem
+} */
+
+/* a.dropdown-toggle.your-account {
+  background-color: transparent;
+} */
+
+i.fa-guitar {
+  color: white;
+  padding: 2rem;
+  cursor: pointer;
+  height: 5rem;
 }
 
-a.dropdown-toggle.your-account {
-  background-color: transparent;
+i.fa-user {
+  padding: 2rem;
 }
+
+span.user-border {
+  border: 2px solid white;
+  float: right;
+}
+
+li.nav-item {
+  color: rgb(144, 141, 141);
+  margin: 1rem;
+}
+
+
 
 

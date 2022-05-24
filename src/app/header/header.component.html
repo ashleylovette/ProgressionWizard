@@ -1,19 +1,57 @@
-<div class="fixed">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="#" class="navbar-brand">ProgressionWizard</a>
-      </div>
+<!-- <div class="fixed"> -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid">
+    <!-- COLUMN ONE -->
+    <div class="col-lg-4">
+      <i class="fas fa-guitar navbar-brand" href="#"></i>
+    </div>
 
-      <ul class="nav navbar-nav">
-        <li routerLinkActive="active">
-          <a routerLink="/chord-identifier" class="hover">Chord Identifier</a>
-        </li>
-        <li routerLinkActive="active" *ngIf="isSignedIn">
-          <a class="hover" routerLink="/songs">My Songs</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+    <!-- <ul class="nav navbar-nav">
+      <li routerLinkActive="active">
+        <a routerLink="/chord-identifier" class="hover">Chord Identifier</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="isSignedIn">
+        <a class="hover" routerLink="/songs">My Songs</a>
+      </li>
+    </ul> -->
+
+    <!-- COLUMN TWO -->
+    <div class="col-lg-4">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item p-2">Chord Identifier</li>
+          <li class="nav-item p-2">
+            Songwriters
+            <!-- <hr class="info-line" /> -->
+          </li>
+          <li class="nav-item p-2">Songs</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- THIRD COLUMN -->
+    <div class="col-lg-4 dropdown">
+      <span
+        class="user-border badge rounded-pill dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fas fa-user p-1"></i>
+      </span>
+      <!-- <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropdown>
           <a
             style="cursor: pointer"
@@ -33,7 +71,8 @@
             </li>
           </ul>
         </li>
-      </ul>
+      </ul> -->
     </div>
-  </nav>
-</div>
+  </div>
+</nav>
+<!-- </div> -->
