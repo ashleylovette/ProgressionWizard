@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 1rem 4rem;
+  /* padding: 1rem 4rem; */
 }
 
 a{
@@ -45,9 +45,14 @@ i.fa-user {
   padding: 2rem;
 }
 
+i.fa-gear {
+  background-color: black;
+}
+
 span.user-border {
   border: 2px solid white;
   float: right;
+  margin: 0 2rem;
 }
 
 li.nav-item {
@@ -55,6 +60,16 @@ li.nav-item {
   margin: 1rem;
 }
 
+.user-menu {
+  position: absolute;
+  right: 0;
+  width: auto;
+}
 
+a {
+  color: black;
+  text-decoration: none;
+  /* padding: 2rem 0; */
+}
 
 
