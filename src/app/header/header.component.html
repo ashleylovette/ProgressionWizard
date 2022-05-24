@@ -2,17 +2,8 @@
   <div class="container-fluid">
     <!-- COLUMN ONE -->
     <div class="col-lg-4">
-      <i class="fas fa-guitar navbar-brand" href="#"></i>
+      <i class="fas fa-guitar navbar-brand" routerLink="/home"></i>
     </div>
-
-    <!-- <ul class="nav navbar-nav">
-      <li routerLinkActive="active">
-        <a routerLink="/chord-identifier" class="hover">Chord Identifier</a>
-      </li>
-      <li routerLinkActive="active" *ngIf="isSignedIn">
-        <a class="hover" routerLink="/songs">My Songs</a>
-      </li>
-    </ul> -->
 
     <!-- COLUMN TWO -->
     <div class="col-lg-4">
@@ -28,10 +19,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item p-1">Chord Identifier</li>
-          <li class="nav-item p-1">Songwriters</li>
-          <li class="nav-item p-1">Songs</li>
+        <ul class="navbar-nav">
+          <li class="nav-item p-1">
+            <a routerLink="/chord-identifier" class="nav-link"
+              >Chord Identifier</a
+            >
+          </li>
+          <li class="nav-item p-1">
+            <a routerLink="/home" class="nav-link">Progression Wizard</a>
+          </li>
+          <li class="nav-item p-1">
+            <a routerLink="/songs" class="nav-link">Songs</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -52,20 +51,22 @@
         aria-labelledby="dropdownMenuButton"
       >
         <li class="dropdown-item">
-          <a style="cursor: pointer" routerLink="/auth"
+          <a style="cursor: pointer" routerLink="/auth" class="dropdown-link"
             ><b>Sign in</b> to view your songs!</a
           >
         </li>
         <li class="dropdown-item">
-          <a style="cursor: pointer" routerLink="/auth"
+          <a style="cursor: pointer" class="dropdown-link" routerLink="/auth"
             >Don't have an account? <b>Sign up!</b></a
           >
         </li>
         <li class="dropdown-item" *ngIf="!isSignedIn">
-          <a style="cursor: pointer">Settings </a>
+          <a style="cursor: pointer" class="dropdown-link">Settings </a>
         </li>
         <li class="dropdown-item" *ngIf="!isSignedIn">
-          <a style="cursor: pointer" (click)="onLogout()">Logout</a>
+          <a class="dropdown-link" style="cursor: pointer" (click)="onLogout()"
+            >Logout</a
+          >
         </li>
       </ul>
     </div>

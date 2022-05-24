@@ -1,8 +1,10 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { HomeComponent } from "./home/home.component";
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/chord-identifier', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent},
   { path: 'songs', loadChildren: () => import('./my-songs/songs.module').then(m => m.SongsModule)},
   { path: 'chord-identifier', loadChildren: () => import('./chord-identifier/chord.module').then(m => m.ChordModule)},
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
