@@ -51,7 +51,6 @@ export class HTTPService {
         const songsArray: Song[] = [];
         for (const key in resData) {
           if (resData.hasOwnProperty(key)){
-            // console.log(key);
             songsArray.push({...resData[key], id: key})
           }
         }

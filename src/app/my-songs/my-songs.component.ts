@@ -29,7 +29,7 @@ export class MySongsComponent implements OnInit, OnDestroy{
   .subscribe(
     (songs: Song[]) => {
       this.songs = songs;
-      // console.log(songs);
+      console.log(songs);
     }
     );
     this.songs = this.songsService.getSongs();

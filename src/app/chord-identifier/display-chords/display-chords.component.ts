@@ -33,7 +33,7 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
 
     this.chordSavedSub = this.chordsService.chordSaved.subscribe(chord => {
       this.chordDisplayed = true;
-      // this.yourChord = chord;
+
       if(this.chordDisplayed = true) {
         this.chordsService.storeChords(chord);
         this.allChords = this.chordsService.getChords();
@@ -53,6 +53,7 @@ export class DisplayChordsComponent implements OnInit, OnDestroy {
 
   onSaveSong(songForm: NgForm) {
     this.songSaved = true;
+
     // change array to a string
     const stringOfChords = this.allChords.join(" | ");
 
