@@ -62,6 +62,7 @@
     text-transform: capitalize;
   }
 
-.fa-long-arrow-right {
+.arrow {
+  border: 1px solid white;
   color: white;
 }

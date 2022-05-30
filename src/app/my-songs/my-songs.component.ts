@@ -13,11 +13,6 @@ import { SongsService } from '../shared/songs.service';
 })
 export class MySongsComponent implements OnInit, OnDestroy{
   songs: Song[]= [];
-    // STATIC DATA
-  // songs: Song[] = [
-  //   new Song('C, E, G'),
-  //   new Song('A, E, G')
-  // ];
   songsChangedSub = new Subscription;
 
 
