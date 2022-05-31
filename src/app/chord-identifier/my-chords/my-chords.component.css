@@ -30,25 +30,28 @@ input.ng-invalid.ng-touched {
 }
 
 button.add {
-  background-color: var(--var-blue);
+  background-color: darkgray;
   color: white;
 }
 
 button.reset {
-  border: 2px solid var(--var-blue);
-  color: var(--var-blue);
+  border: 2px solid purple;
+  color: purple;
   background-color: white;
 
 }
 
 button.submit {
-  background-image: var(--gradient);
+  background-color: purple;
   color: white;
 }
 
 button.remove {
-  border: 2px solid var(--var-green);
-  color: var(--var-green);
+  border: 2px solid darkgray;
+  color: darkgray;
   background-color: white;
+}
 
+.input {
+ margin: 1em;
 }

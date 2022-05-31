@@ -1,55 +1,63 @@
-<!-- class="col-xs-12 col-md-6 col-md-offset-3" -->
-<div class="row">
-  <div>
-    <div class="alert alert-danger" *ngIf="error">
-      <p>{{ error }}</p>
-    </div>
-    <div *ngIf="isLoading" style="text-align: center">
-      <app-loading-spinner></app-loading-spinner>
-    </div>
-    <form
-      #authForm="ngForm"
-      (ngSubmit)="onSubmitAuth(authForm)"
-      *ngIf="!isLoading"
-    >
-      <h2 class="text-center login">Login</h2>
-      <div class="form-group">
-        <!-- <label for="email">Email</label> -->
-        <input
-          class="form-control text-center"
-          id="email"
-          name="email"
-          ngModel
-          required
-          email
-          placeholder="you@emailaddress.com"
-        />
+<div class="container-fluid auth-form">
+  <div class="row">
+    <div>
+      <div class="alert alert-danger" *ngIf="error">
+        <p>{{ error }}</p>
       </div>
-      <div class="form-group">
-        <!-- <label for="password">Password</label> -->
-        <input
-          type="password"
-          class="form-control text-center"
-          id="password"
-          name="password"
-          placeholder="xxxxxx"
-          password
-          ngModel
-          required
-          minlength="6"
-        />
+      <div *ngIf="isLoading" style="text-align: center">
+        <app-loading-spinner></app-loading-spinner>
       </div>
-      <div>
-        <button class="btn login" type="submit" [disabled]="!authForm.valid">
-          {{ isLoginMode ? "Log In" : "Sign Up" }}
-        </button>
-
-        <button class="btn switch" type="button" (click)="onSwitchMode()">
+      <form
+        #authForm="ngForm"
+        (ngSubmit)="onSubmitAuth(authForm)"
+        *ngIf="!isLoading"
+      >
+        <h2 class="text-center login">
           {{
-            isLoginMode ? "Don't have an account?" : "Already have an account?"
+            isLoginMode
+              ? "Login to your account"
+              : "Sign up for Progression Wizard"
           }}
-        </button>
-      </div>
-    </form>
+        </h2>
+        <div class="form-group">
+          <input
+            class="form-control text-center"
+            id="email"
+            name="email"
+            ngModel
+            required
+            email
+            placeholder="you@emailaddress.com"
+          />
+        </div>
+        <div class="form-group">
+          <!-- <label for="password">Password</label> -->
+          <input
+            type="password"
+            class="form-control text-center"
+            id="password"
+            name="password"
+            placeholder="xxxxxx"
+            password
+            ngModel
+            required
+            minlength="6"
+          />
+        </div>
+        <div>
+          <button class="btn login" type="submit" [disabled]="!authForm.valid">
+            {{ isLoginMode ? "Log In" : "Sign Up" }}
+          </button>
+
+          <button class="btn switch" type="button" (click)="onSwitchMode()">
+            {{
+              isLoginMode
+                ? "Don't have an account?"
+                : "Already have an account?"
+            }}
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

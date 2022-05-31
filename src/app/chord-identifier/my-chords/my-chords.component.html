@@ -1,42 +1,40 @@
 <div class="container list-group-item">
-  <div class="row">
-    <div class="col-xs-12">
-      <h4 class="lead">Enter At Least 3 Notes Below:</h4>
-      <form [formGroup]="noteForm" (ngSubmit)="onFormSubmit(noteForm)">
-        <div class="container">
-          <div
-            class="form-group col-xs-2"
-            formArrayName="notes"
-            *ngFor="let noteControl of getControls(); let i = index"
-          >
-            <input
-              type="Note"
-              class="form-control"
-              id="notes"
-              [formControlName]="i"
-            />
-          </div>
+  <div class="col-xs-12">
+    <h4 class="lead">Enter At Least 3 Notes Below:</h4>
+    <form [formGroup]="noteForm" (ngSubmit)="onFormSubmit(noteForm)">
+      <div class="row">
+        <div
+          class="form-group col-md-2"
+          formArrayName="notes"
+          *ngFor="let noteControl of getControls(); let i = index"
+        >
+          <input
+            type="Note"
+            class="form-control col-auto input"
+            id="notes"
+            [formControlName]="i"
+          />
         </div>
-        <div class="container pt-4">
-          <button type="button" class="btn add" (click)="onAddNote()">
-            Add Note
-          </button>
-          <button type="button" class="btn remove" (click)="onRemoveNote()">
-            Remove Note
-          </button>
-          <button type="submit" class="btn submit" [disabled]="!noteForm.valid">
-            Submit Chord
-          </button>
-          <button
-            type="reset"
-            class="btn reset"
-            (click)="onResetForm()"
-            [disabled]="!noteForm.valid"
-          >
-            Reset
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+      <div class="container pt-4">
+        <button type="button" class="btn add" (click)="onAddNote()">
+          Add Note
+        </button>
+        <button type="button" class="btn remove" (click)="onRemoveNote()">
+          Remove Note
+        </button>
+        <button type="submit" class="btn submit" [disabled]="!noteForm.valid">
+          Submit Chord
+        </button>
+        <button
+          type="reset"
+          class="btn reset"
+          (click)="onResetForm()"
+          [disabled]="!noteForm.valid"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
   </div>
 </div>

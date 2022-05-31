@@ -1,3 +1,7 @@
+.chord-identifier {
+  margin: 10rem 1rem 1rem 1rem
+}
+
 
 button.alert-btn {
   margin-top: 10px;
@@ -11,6 +15,3 @@ button.alert-btn {
   margin: 3rem;
 }
 
-div> div>h2.your-chord {
-  border: 2px solid red;
-}
