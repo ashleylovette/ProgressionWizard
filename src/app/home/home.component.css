@@ -1,5 +1,29 @@
 .home-page {
-  margin-top: -2rem;
+  margin-top: 5rem;
+}
+
+.jumbotron {
+  height: 35rem;
+  background-image: url("src/assets/images/concert.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.thumbnails {
+  margin: auto;
+}
+
+.img-thumbnail {
+  height: 15rem;
+  width: 15rem;
+  border: none;
+  border-radius: 15%;
+  margin:2rem;
+}
+
+.signup-btn {
+  color: white;
+  background-color: black;
 }
 
 .home-container{
@@ -34,9 +58,7 @@
     border-radius: 0.625rem;
     height: auto;
     text-align: center;
-
-
-  }
+}
 
 .testimonials.card i {
   font-size: 1.5rem;
