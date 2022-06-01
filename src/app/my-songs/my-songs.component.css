@@ -1,7 +1,12 @@
+.song-component {
+  padding: 2rem;
+  margin-top: 6rem;
+}
+
 .save {
-  background-image: var(--gradient);
+  background-color: purple;
   color: white;
-  /* border: 2px solid var(--var-green); */
+  float: right;
 }
 
 

@@ -1,6 +1,5 @@
 .back {
   position: fixed;
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: row;
 }
@@ -22,8 +21,8 @@ button {
 }
 
 .delete {
-  border: 2px solid var(--var-blue);
+  border: 2px solid purple;
   background-color: white;
-  color: var(--var-blue);
+  color: purple;
 }
 

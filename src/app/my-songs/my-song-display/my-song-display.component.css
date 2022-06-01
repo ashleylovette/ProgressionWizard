@@ -9,5 +9,5 @@ button {
 }
 
 .active {
-  background-image: var(--gradient);
+  background-color: purple;
 }
