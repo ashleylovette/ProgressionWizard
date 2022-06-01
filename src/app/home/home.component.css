@@ -21,17 +21,44 @@
   border-radius: 15%;
   margin:2rem;
   z-index: 1;
+  /* background-color: black; */
+  /* opacity: 20%; */
+  position: relative;
+}
+
+.img-thumbnail-2 {
+  background-image: url("../../assets/images/horns.jpg");
+  background-size: cover;
+}
+
+.img-thumbnail-3 {
+  background-image: url("../../assets/images/sunglasses.jpg");
+  background-size: cover;
+}
+
+.img-thumbnail-4 {
+  background-image: url("../../assets/images/hands.jpg");
+  background-size: cover;
+}
+
+.img-thumbnail-1 {
+  background-image: url("../../assets/images/guitar2.jpg");
+  background-size: cover;
 }
 
 .img-thumbnail:hover {
-  background-color: white;
-  opacity: 60%;
+  transform: translateY(-0.35rem);
+  opacity: 70%;
+  box-shadow: 0px 16px 24px 2px rgba(0,0,0,0.14) , 0px 6px 30px 5px rgba(0,0,0,0.12) , 0px 8px 10px -7px rgba(0,0,0,0.2);
   cursor: pointer;
 }
 
-.thumbnail-cover{
-  background-color:white;
-  z-index: 99;
+.thumbnail-text {
+  position: absolute;
+  color: white;
+  font-size: larger;
+  margin: 2rem;
+
 }
 
 .signup-btn {
