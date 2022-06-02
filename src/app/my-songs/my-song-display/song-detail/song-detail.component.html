@@ -1,9 +1,12 @@
 <div class="container back">
   <div class="container card">
     <div class="col-xs-12">
+      <div class="row song-info">
+        <h2 class="song-title">Song Title: {{ song.title }}</h2>
+        <h3 class="lead song-chords">Chords: {{ song.chords }}</h3>
+      </div>
       <div class="row">
-        <h2>Song Title: {{ song.title }}</h2>
-        <h3 class="lead">Chords: {{ song.chords }}</h3>
+        <button class="btn edit" disabled>Edit Song</button>
       </div>
       <div class="row">
         <button class="btn delete" (click)="onDeleteSong()">Delete Song</button>

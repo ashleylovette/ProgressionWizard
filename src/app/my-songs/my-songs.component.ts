@@ -14,9 +14,12 @@ import { SongsService } from '../shared/songs.service';
 export class MySongsComponent implements OnInit, OnDestroy{
   songs: Song[]= [];
   songsChangedSub = new Subscription;
+  isLoading: boolean;
 
 
-  constructor(private http: HTTPService, private songsService: SongsService) {}
+  constructor(private http: HTTPService, private songsService: SongsService) {
+    this.isLoading = this.http.isLoading;
+  }
 
   ngOnInit() {
   this.http.fetchSongs().subscribe();

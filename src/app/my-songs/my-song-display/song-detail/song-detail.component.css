@@ -16,13 +16,29 @@
 }
 
 button {
-  margin-top: 3px;
-  margin-bottom: 10px;
+  margin: 0.5rem 0;
+}
+
+.song-info {
+  padding: 2rem;
+}
+
+.song-title{
+  color: rgb(73, 72, 72);
+}
+
+.song-chords {
+  color: gray;
 }
 
 .delete {
   border: 2px solid purple;
   background-color: white;
   color: purple;
+}
+
+.edit {
+  background-color: purple;
+  color:white;
 }
 

@@ -1,6 +1,14 @@
 <div class="container-fluid auth-form">
-  <div class="alert alert-danger" *ngIf="error">
-    <p>{{ error }}</p>
+  <div class="alert alert-dismissable" *ngIf="error">
+    <p class="error-message">
+      {{ error ? error : "An unknown error occurred, please try again later." }}
+    </p>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
   </div>
   <div *ngIf="isLoading" style="text-align: center">
     <app-loading-spinner></app-loading-spinner>
@@ -15,6 +23,8 @@
         isLoginMode ? "Login to your account" : "Sign up for Progression Wizard"
       }}
     </h2>
+    <hr />
+
     <div class="form-group">
       <input
         class="form-control text-center"

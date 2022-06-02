@@ -16,6 +16,7 @@ export class HTTPService {
   firebaseRootURL: string =
     "https://song-wizard-default-rtdb.firebaseio.com/songs.json";
   apiKey: string = "AIzaSyD5dwpdjLwIWGHVyxxLYho0nh4m8zck1BY";
+  isLoading: boolean = false;
 
 
   constructor(
@@ -45,6 +46,7 @@ export class HTTPService {
   }
 
   fetchSongs(): any {
+    this.isLoading = true;
   return this.http
     .get<{ [key: string]: Song}>(this.firebaseRootURL)
       .pipe(map(resData => {

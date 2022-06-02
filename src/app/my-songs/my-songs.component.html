@@ -2,6 +2,10 @@
   <div class="row">
     <h2>My Songs:</h2>
     <h4 class="lead">Remember to save your changes!</h4>
+    <p class="description">
+      These are your songs. You can edit or delete a song by selecting it from
+      the list below.
+    </p>
     <div class="col-md-12">
       <button class="btn save" (click)="onSaveSongs()">Save Changes</button>
     </div>
@@ -9,6 +13,9 @@
   <hr />
   <div class="row">
     <div class="col-md-6 list-container">
+      <div *ngIf="isLoading" style="text-align: center">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
       <app-my-song-display
         *ngFor="let songEl of songs; let i = index"
         [song]="songEl"
