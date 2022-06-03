@@ -1,7 +1,11 @@
 <div class="container-fluid auth-form">
   <div class="alert alert-dismissable" *ngIf="error">
     <p class="error-message">
-      {{ error ? error : "An unknown error occurred, please try again later." }}
+      {{
+        isLoginMode
+          ? "Your email or password is incorrect"
+          : "Email must be in correct formt and password must be at least six characters."
+      }}
     </p>
     <button
       type="button"

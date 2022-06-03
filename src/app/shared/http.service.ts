@@ -16,6 +16,7 @@ export class HTTPService {
   firebaseRootURL: string =
     "https://song-wizard-default-rtdb.firebaseio.com/songs.json";
   apiKey: string = "AIzaSyD5dwpdjLwIWGHVyxxLYho0nh4m8zck1BY";
+  apiURL: string = "https://pure-tundra-47439.herokuapp.com";
   isLoading: boolean = false;
 
 

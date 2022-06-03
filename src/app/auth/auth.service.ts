@@ -21,39 +21,33 @@ export interface AuthResponseData {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
   tokenExpirationTimer: any;
+  baseApiURL: string = "https://pure-tundra-47439.herokuapp.com/api/v1";
+  userData: any;
 
 
   constructor( private http: HttpClient, private router: Router) {}
 
   signup(email: string, password: string) {
-    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD5dwpdjLwIWGHVyxxLYho0nh4m8zck1BY',
+    return this.http.post<AuthResponseData>(`${this.baseApiURL}/users/create`,
     {
       email: email,
-      password: password,
-      returnSecureToken: true
-    }
-      ).pipe(catchError(this.handleError), tap(resData => {
-        this.handleAuthentication(
-          resData.email,
-          resData.localId,
-          resData.idToken,
-          +resData.expiresIn);
-      }));
+      password: password
+    })
   }
 
   login(email: string, password: string) {
-    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD5dwpdjLwIWGHVyxxLYho0nh4m8zck1BY',
+    return this.http.post<AuthResponseData>(`${this.baseApiURL}/users/login`,
     {
       email: email,
-      password: password,
-      returnSecureToken: true
+      password: password
     }
       ).pipe(catchError(this.handleError), tap(resData => {
-        this.handleAuthentication(
-          resData.email,
-          resData.localId,
-          resData.idToken,
-          +resData.expiresIn);
+        this.userData = resData;
+        const {expiry, value} = this.userData.payload.token;
+        const {email, id} = this.userData.payload.user;
+
+        const expiresIn = new Date(expiry).getTime() - Date.now();
+        this.handleAuthentication(email, id, value, +expiresIn);
       }));
     ;
   }
