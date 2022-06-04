@@ -22,15 +22,15 @@ export class MySongsComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
-  this.http.fetchSongs().subscribe();
-  this.songsChangedSub = this.songsService.songsChanged
-  .subscribe(
-    (songs: Song[]) => {
-      this.songs = songs;
-      console.log(songs);
-    }
-    );
-    this.songs = this.songsService.getSongs();
+  // this.http.fetchSongs().subscribe();
+  // this.songsChangedSub = this.songsService.songsChanged
+  // .subscribe(
+  //   (songs: Song[]) => {
+  //     this.songs = songs;
+  //     console.log(songs);
+  //   }
+  //   );
+    this.songs = this.songsService.getMySongs();
   }
 
   ngOnDestroy() {

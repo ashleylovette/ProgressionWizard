@@ -16,7 +16,8 @@ import { SongsRoutingModule } from "./songs-routing.module";
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SongsRoutingModule
   ],
   exports: [
     MySongsComponent,

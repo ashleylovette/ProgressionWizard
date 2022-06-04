@@ -14,10 +14,14 @@ export class SongsResolverService implements Resolve<Song[]> {
     private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const songs = this.songsService.getSongs();
+    // const songs = this.songsService.getSongs();
+    const songs = [
+      {id: 1, name: "Song 1", chords: "C | E | G"},
+      {id: 2, name: "Song 2", chords: "Am | F | C"}
+    ]
 
     if (songs.length === 0) {
-      return this.httpService.fetchSongs();
+      return this.httpService.fetchMySongs();
     } else {
       return songs;
     }

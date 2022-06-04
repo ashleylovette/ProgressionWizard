@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.autoLogin();
 
     this.userSub = this.authService.user.subscribe(user => {
-      this.isSignedIn = !!user;
+      this.isSignedIn = this.authService.isLoggedIn;
      });
   }
 
@@ -28,5 +28,4 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onLogout() {
     this.authService.logout();
   }
-
 }

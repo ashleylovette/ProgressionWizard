@@ -39,14 +39,14 @@ export class HTTPService {
   }
 
   saveSongs() {
-    const songs = this.songsService.getSongs();
+    const songs = this.songsService.getMySongs();
     this.http.put(this.firebaseRootURL, songs)
       .subscribe(res => {
         console.log(res);
       });
   }
 
-  fetchSongs(): any {
+  fetchMySongs(): any {
     this.isLoading = true;
   return this.http
     .get<{ [key: string]: Song}>(this.firebaseRootURL)
