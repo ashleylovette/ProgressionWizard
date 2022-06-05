@@ -24,7 +24,8 @@ export class AuthService {
   tokenExpirationTimer: any;
   baseApiURL: string = "https://pure-tundra-47439.herokuapp.com/api/v1";
   userData: any;
-  isLoggedIn: boolean = false;
+  // isLoggedIn: boolean = false;
+
 
   constructor( private http: HttpClient, private router: Router, private httpService: HTTPService) {}
 
@@ -72,7 +73,7 @@ export class AuthService {
 
     if(loadedUser.token) {
       this.user.next(loadedUser);
-      this.isLoggedIn = true;
+      // this.isLoggedIn = true;
       const expirationDuration = new Date(userData._tokenExpirationDate).getTime() -
       new Date().getTime();
       // this.autoLogout(expirationDuration);
@@ -86,7 +87,7 @@ export class AuthService {
         console.log("Logged out ", res)
         if (res.success) {
           this.user.next(null);
-          this.isLoggedIn = false;
+          // this.isLoggedIn = false;
 
           localStorage.removeItem('userData');
 
@@ -121,7 +122,7 @@ export class AuthService {
       expirationDate
     );
     this.user.next(user);
-    this.isLoggedIn = true;
+    // this.isLoggedIn = true;
     this.httpService.fetchSongs().subscribe();
     // this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));

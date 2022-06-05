@@ -11,10 +11,11 @@ const routes: Routes = [
   { path: '',
 component: MySongsComponent,
 // canActivate: [AuthGuard],
+
 children: [
-  { path: '', component: SongStartComponent },
+  { path: '', component: SongStartComponent},
   { path: ':id', component: SongDetailComponent, resolve: [SongsResolverService]}
-] },]
+] }]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

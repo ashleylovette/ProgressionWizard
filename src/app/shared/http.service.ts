@@ -28,9 +28,6 @@ export class HTTPService {
 
 
   saveSong(newSong) {
-    this.song = newSong;
-
-    // ERROR UNAUTHORIZED
     this.http
     .post(`http://localhost:3000/api/v1/songs/create`, newSong).subscribe((res:any) => {
       console.log(res.payload.song);
@@ -69,9 +66,9 @@ export class HTTPService {
     fetchSongs() {
       return this.http.get(`${this.apiURL}/songs/index`, {}).pipe(
         tap((res:any) => {
-          // console.log("fetching songs: ", res)
           this.allSongs = res.payload.map(x => new Song(x));
           this.songsService.setSongs(this.allSongs);
+          console.log(this.allSongs);
         })
       );
     }
