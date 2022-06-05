@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
 import { HTTPService } from "../shared/http.service";
 
 import { Song } from "../shared/song.model";
@@ -10,9 +10,14 @@ import { SongsService } from "../shared/songs.service";
 export class SongsResolverService implements Resolve<Song[]> {
 
   constructor(
-    private httpService: HTTPService) {}
+    private httpService: HTTPService, private songsService: SongsService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.httpService.fetchSongs();
+    const songs  = this.songsService.getSongs();
+    if (songs.length == 0) {
+      return this.httpService.fetchSongs();
+    } else {
+      return songs;
+    }
   }
 }

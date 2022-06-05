@@ -122,7 +122,6 @@ export class AuthService {
       expirationDate
     );
     this.user.next(user);
-    // this.isLoggedIn = true;
     this.httpService.fetchSongs().subscribe();
     // this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));

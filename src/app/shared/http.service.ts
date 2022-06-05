@@ -13,9 +13,6 @@ import { AuthService } from "../auth/auth.service";
 export class HTTPService {
   song: Song;
   loadedSongs: Song[] = [];
-  // firebaseRootURL: string =
-    // "https://song-wizard-default-rtdb.firebaseio.com/songs.json";
-  // apiKey: string = "AIzaSyD5dwpdjLwIWGHVyxxLYho0nh4m8zck1BY";
   apiURL: string = "https://pure-tundra-47439.herokuapp.com/api/v1";
   isLoading: boolean = false;
   allSongs: Song[];
@@ -28,20 +25,24 @@ export class HTTPService {
 
 
   saveSong(newSong) {
-    this.http
-    .post(`http://localhost:3000/api/v1/songs/create`, newSong).subscribe((res:any) => {
+   return this.http
+    .post(`${this.apiURL}/songs/create`, newSong).subscribe((res:any) => {
       console.log(res.payload.song);
+      this.chordsService.clearChords();
     });
 
-    this.chordsService.clearChords();
   }
 
   saveSongs() {
-    const songs = this.songsService.getMySongs();
+    const songs = this.songsService.getSongs();
     this.http.post(`${this.apiURL}/songs`, songs)
       .subscribe(res => {
         // console.log(res);
       });
+  }
+
+  deleteSongs() {
+    return this.http.delete(`${this.apiURL}/songs/delete`)
   }
 
   fetchMySongs(): any {
@@ -68,7 +69,6 @@ export class HTTPService {
         tap((res:any) => {
           this.allSongs = res.payload.map(x => new Song(x));
           this.songsService.setSongs(this.allSongs);
-          console.log(this.allSongs);
         })
       );
     }

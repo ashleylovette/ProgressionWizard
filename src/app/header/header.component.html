@@ -65,6 +65,11 @@
             >Don't have an account? <b>Sign up!</b></a
           >
         </li>
+        <li class="dropdown-item" *ngIf="isSignedIn">
+          <a style="cursor: pointer" class="dropdown-link" routerLink="/auth"
+            >Welcome <b>{{ user.email }}</b></a
+          >
+        </li>
         <hr />
         <li class="dropdown-item">
           <a

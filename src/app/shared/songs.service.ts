@@ -14,7 +14,7 @@ export class SongsService {
     this.songsChanged.next(this.allSongs.slice());
   }
 
-  getMySongs(): any {
+  getSongs(): any {
    return this.allSongs.slice();
   }
 

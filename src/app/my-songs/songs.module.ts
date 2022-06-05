@@ -6,13 +6,15 @@ import { SongDetailComponent } from "./my-song-display/song-detail/song-detail.c
 import { MySongsComponent } from "./my-songs.component";
 import { SongStartComponent } from "./song-start/song-start.component";
 import { SongsRoutingModule } from "./songs-routing.module";
+import { SongsEditComponent } from './songs-edit/songs-edit.component';
 
 @NgModule({
   declarations: [
     MySongsComponent,
     MySongDisplayComponent,
     SongDetailComponent,
-    SongStartComponent
+    SongStartComponent,
+    SongsEditComponent
   ],
   imports: [
     CommonModule,

@@ -10,6 +10,7 @@ import { AuthService } from '../auth/auth.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   isSignedIn: boolean = false;
   private userSub = new Subscription;
+  user = null;
 
   constructor(private authService: AuthService) {}
 
@@ -18,6 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.userSub = this.authService.user.subscribe(user => {
       if (user) {
+        this.user = user;
         this.isSignedIn= true;
       } else this.isSignedIn = false;
      });

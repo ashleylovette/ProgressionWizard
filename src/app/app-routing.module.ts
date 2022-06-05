@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { SessionGuard } from "./auth/session.guard";
 import { HomeComponent } from "./home/home.component";
+import { SongsResolverService } from "./my-songs/songs-resolver.service";
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
