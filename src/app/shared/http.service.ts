@@ -5,7 +5,6 @@ import { Song } from './song.model';
 import { map, tap } from 'rxjs/operators';
 import { chordsService } from "./chords.service";
 import { SongsService } from "./songs.service";
-import { AuthService } from "../auth/auth.service";
 
 @Injectable({
   providedIn: "root",
