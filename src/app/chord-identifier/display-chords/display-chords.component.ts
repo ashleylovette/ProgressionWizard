@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { chordsService } from 'src/app/shared/chords.service';
 import { Song } from 'src/app/shared/song.model';
-import { SongsService } from 'src/app/shared/songs.service';
 import { HTTPService } from '../../shared/http.service';
 
 

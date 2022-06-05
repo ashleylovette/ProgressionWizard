@@ -55,21 +55,21 @@
         class="dropdown-menu user-menu rounded shadow open"
         aria-labelledby="dropdownMenuButton"
       >
-        <li class="dropdown-item" *ngIf="!isSignedIn">
+        <li class="dropdown-item">
           <a style="cursor: pointer" class="dropdown-link" routerLink="/auth"
             ><b>Sign in</b> to view your songs!</a
           >
         </li>
-        <li class="dropdown-item" *ngIf="!isSignedIn">
+        <li class="dropdown-item">
           <a style="cursor: pointer" class="dropdown-link" routerLink="/auth"
             >Don't have an account? <b>Sign up!</b></a
           >
         </li>
         <hr />
-        <li class="dropdown-item" *ngIf="isSignedIn">
+        <li class="dropdown-item">
           <a style="cursor: pointer" class="dropdown-link">Settings </a>
         </li>
-        <li class="dropdown-item" *ngIf="isSignedIn">
+        <li class="dropdown-item">
           <a class="dropdown-link" style="cursor: pointer" (click)="onLogout()"
             >Logout</a
           >

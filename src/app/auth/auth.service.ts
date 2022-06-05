@@ -5,6 +5,7 @@ import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { User } from "./user.model";
 import { Router } from "@angular/router";
+import { HTTPService } from "../shared/http.service";
 
 export interface AuthResponseData {
   idToken: string;
@@ -25,7 +26,7 @@ export class AuthService {
   userData: any;
   isLoggedIn: boolean = false;
 
-  constructor( private http: HttpClient, private router: Router) {}
+  constructor( private http: HttpClient, private router: Router, private httpService: HTTPService) {}
 
   signup(email: string, password: string) {
     return this.http.post<AuthResponseData>(`${this.baseApiURL}/users/create`,
@@ -71,20 +72,31 @@ export class AuthService {
 
     if(loadedUser.token) {
       this.user.next(loadedUser);
+      this.isLoggedIn = true;
       const expirationDuration = new Date(userData._tokenExpirationDate).getTime() -
       new Date().getTime();
-      this.autoLogout(expirationDuration);
+      // this.autoLogout(expirationDuration);
+      this.httpService.fetchSongs().subscribe();
     }
   }
 
   logout() {
-    this.user.next(null);
-    this.isLoggedIn = false;
-    this.router.navigate(['/auth']);
-    localStorage.removeItem('userData');
-    if (this.tokenExpirationTimer) {
-      clearTimeout(this.tokenExpirationTimer);
-    }
+    this.http.delete(`${this.baseApiURL}/users/logout`)
+      .subscribe((res:any) => {
+        console.log("Logged out ", res)
+        if (res.success) {
+          this.user.next(null);
+          this.isLoggedIn = false;
+
+          localStorage.removeItem('userData');
+
+          if (this.tokenExpirationTimer) {
+            clearTimeout(this.tokenExpirationTimer);
+          }
+
+          this.router.navigate(['/auth']);
+        }
+      })
     this.tokenExpirationTimer = null;
   }
 
@@ -110,7 +122,8 @@ export class AuthService {
     );
     this.user.next(user);
     this.isLoggedIn = true;
-    this.autoLogout(expiresIn * 1000);
+    this.httpService.fetchSongs().subscribe();
+    // this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
 

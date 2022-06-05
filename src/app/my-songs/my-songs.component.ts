@@ -18,19 +18,15 @@ export class MySongsComponent implements OnInit, OnDestroy{
 
 
   constructor(private http: HTTPService, private songsService: SongsService) {
-    this.isLoading = this.http.isLoading;
   }
 
   ngOnInit() {
-  // this.http.fetchSongs().subscribe();
-  // this.songsChangedSub = this.songsService.songsChanged
-  // .subscribe(
-  //   (songs: Song[]) => {
-  //     this.songs = songs;
-  //     console.log(songs);
-  //   }
-  //   );
-    this.songs = this.songsService.getMySongs();
+    this.songsChangedSub = this.songsService.songsChanged
+      .subscribe(
+        (songs: Song[]) => {
+          this.songs = songs;
+        }
+      )
   }
 
   ngOnDestroy() {
