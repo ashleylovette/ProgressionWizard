@@ -20,15 +20,15 @@ export class HTTPService {
   constructor(
     private http: HttpClient,
     private chordsService: chordsService,
-    private songsService: SongsService) {}
+    private songsService: SongsService) { }
 
 
   saveSong(newSong) {
-   return this.http
-    .post(`${this.apiURL}/songs/create`, newSong).subscribe((res:any) => {
-      console.log(res.payload.song);
-      this.chordsService.clearChords();
-    });
+    return this.http
+      .post(`${this.apiURL}/songs/create`, newSong).subscribe((res: any) => {
+        console.log(res.payload.song);
+        this.chordsService.clearChords();
+      });
 
   }
 
@@ -46,29 +46,29 @@ export class HTTPService {
 
   fetchMySongs(): any {
     this.isLoading = true;
-  return this.http
-    .get(`${this.apiURL}/songs/my_songs`)
+    return this.http
+      .get(`${this.apiURL}/songs/my_songs`)
       .pipe(map(resData => {
         const songsArray: Song[] = [];
         for (const key in resData) {
-          if (resData.hasOwnProperty(key)){
-            songsArray.push({...resData[key], id: key})
+          if (resData.hasOwnProperty(key)) {
+            songsArray.push({ ...resData[key], id: key })
           }
         }
         return songsArray;
       }),
-      tap(songs => {
-        this.songsService.setSongs(songs);
-      })
-      );
-    }
-
-    fetchSongs() {
-      return this.http.get(`${this.apiURL}/songs/index`, {}).pipe(
-        tap((res:any) => {
-          this.allSongs = res.payload.map(x => new Song(x));
-          this.songsService.setSongs(this.allSongs);
+        tap(songs => {
+          this.songsService.setSongs(songs);
         })
       );
-    }
+  }
+
+  fetchSongs() {
+    return this.http.get(`${this.apiURL}/songs/index`, {}).pipe(
+      tap((res: any) => {
+        this.allSongs = res.payload.map(x => new Song(x));
+        this.songsService.setSongs(this.allSongs);
+      })
+    );
+  }
 }

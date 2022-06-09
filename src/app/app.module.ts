@@ -8,12 +8,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
+import { SongWritersComponent } from './song-writers/song-writers.component';
+import { MeComponent } from './song-writers/me/me.component';
+import { ProfileComponent } from './song-writers/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    SongWritersComponent,
+    MeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
